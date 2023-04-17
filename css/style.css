@@ -12,8 +12,16 @@
     src: url(../webfonts/TheJamsilOTF3Regular.woff) format("woff");
 }
 @font-face {
+    font-family: JamsilM;
+    src: url(../webfonts/TheJamsilOTF4Medium.woff) format("woff");
+}
+@font-face {
     font-family: JamsilB;
     src: url(../webfonts/TheJamsilOTF5Bold.woff) format("woff");
+}
+@font-face {
+    font-family: JamsilEB;
+    src: url(../webfonts/TheJamsilOTF6ExtraBold.woff) format("woff");
 }
 
 * {
@@ -218,6 +226,17 @@ body {
     width: 100%;
     height: 400px;
 }
+.visual::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    width: 100vw;
+    height: 400px;
+    background: #fff2e2;
+    z-index: -2;
+}
 .visual .slide {
     width: 100%;
     height: 100%;
@@ -356,6 +375,7 @@ nav .recom .title p:last-child {
     color: #929292;
     margin-top: 5px;
 }
+/**/
 nav .recom .prod {
     margin-top: 22px;
     overflow: hidden;
@@ -374,68 +394,67 @@ nav .recom .prod > ul > li {
 }
 nav .recom .prod .under {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
+
 nav .recom .prod .under li:first-child {
-    background: #f5f5f5;
+    background: rgba(0,0,0,0.4);
     width: 220px;
     height: 220px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 1s;
+}
+nav .recom .prod .under li:first-child img {
+    opacity: 0.6;
+} 
+nav .recom .prod .under li:nth-child(2) a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font: 16px JamsilR;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+nav .recom .prod .under li:nth-child(2) a p {
+    width: 160px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s 0.2s;
+} 
+nav .recom .prod .under li:nth-child(2) a p:first-child {
+    margin-bottom: 10px;
 }
 nav .recom .prod .under li:last-child {
     position: absolute;
     left: 0;
     top: 0;
-    width: 220px;
-    height: 220px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: -1;
-    
-} 
-nav .recom .prod .under li:last-child a {
-    position: relative;
-    color: #fff;
-    font: 16px JamsilR;
-    text-align: center;
-}
-nav .recom .prod .under li:last-child a p {
-    width: 160px;
-    height: 40px;
-    text-overflow: ellipsis;
-    margin: 0 auto;
-    /* transform: scale(0);
-    transition: scale 0.5s;
-    transition-delay: 1s; */
-}
-nav .recom .prod .under li:last-child a p:first-child {
-    line-height: 20px;
-    margin-top: 80px;
-}
-nav .recom .prod .under li:last-child a p:nth-child(2) {
-    line-height: 40px;
-}
-nav .recom .prod .under li:last-child a .img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 220px;
-    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -2;
-    opacity: 0.6;
+    transition: transform 0.5s;
 }
 nav .recom .prod .under img {
     width: 192px;
 }
-nav .recom .prod .under li:first-child:hover{
+nav .recom .prod .under:hover > li:last-child{
     transform: translateX(-220px);
 }
+nav .recom .prod .under:hover > li:nth-child(2) a p{
+    opacity: 1;
+}
+/**/
 nav .underbar {
     position: relative;
     width: 1155px;
@@ -453,4 +472,538 @@ nav .underbar::after {
     height: 5px;
     background: #f00;
     z-index: 1;
+}
+nav .sale {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1 3 10%;
+    margin-top: 60px;
+}
+nav .sale .saleTitle {
+    position: relative;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+nav .sale .saleTitle li {
+    margin-bottom: 28px;
+}
+nav .sale .saleTitle li:first-child {
+    position: relative;
+    display: inline;
+    font: 35px JamsilB;
+}
+nav .sale .saleTitle li:first-child::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    background: #f00;
+    border-radius: 50%;
+}
+nav .sale .saleTitle li:nth-child(2) {
+    position: absolute;
+    left: 190px;
+    top: 5px;
+}
+nav .sale .saleTitle li:nth-child(3) > p {
+    font: 13px JamsilL;
+    color: #929292;
+}
+nav .sale .saleTitle li:nth-child(3) > p:first-child {
+    margin-bottom: 9px;
+}
+nav .sale .saleTitle li:last-child {
+    position: relative;
+    width: 100%;
+    font: 40px JamsilEB;
+    color: #f00;
+    background: #f5f5f5;
+    border-radius: 50px;
+    text-align: center;
+    padding: 5px 0;
+}
+nav .sale .saleTitle li:last-child::after {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url(../images/saleTime.png);
+}
+nav .sale .saleProd {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1 1 30%;
+}
+nav .sale .saleProd li img {
+    width: 230px;
+}
+nav .sale .saleProd .prod {
+    position: relative;
+    overflow: hidden;
+}
+nav .sale .saleProd .prod li:first-child {
+    width: 280px;
+    height: 240px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    transition: 0.5s;
+}
+nav .sale .saleProd .prod li:nth-child(2) {
+    font: 16px JamsilR;
+    margin-top: 20px;
+}
+nav .sale .saleProd .prod li:nth-child(3) {
+    font: 12px JamsilL;
+    color: #929292;
+    margin-top: 4px;
+}
+nav .sale .saleProd .prod li:nth-child(4) {
+    font: 19px JamsilM;
+    margin-top: 4px;
+    color: #000;
+}
+nav .sale .saleProd .prod li:nth-child(4) .salePrice {
+    font: 13px JamsilR;
+    color: #929292;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+nav .sale .saleProd .prod li:nth-child(4) .salePersent {
+    font: 16px JamsilR;
+    color: #f00;
+    margin-left: 5px;
+}
+nav .sale .saleProd .prod li:last-child {
+    position: absolute;
+    right: 10px;
+    bottom: 85px;
+}
+nav .sale .saleProd .prod li:last-child img {
+    width: 32px;
+}
+nav .sale .saleProd .prod li:first-child:hover {
+    background: rgba(92, 92, 92, 0.4);
+}
+nav .sale .saleProd .prod::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 195px;
+    top: -15px;
+    height: 63px;
+    width: 63px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 41px 0px 0px 0px #fff,
+                0 47px 0 0 #fff,
+                41px 47px 0 0 #fff;
+}
+nav .sale .saleProd .prod::after {
+    content: "TIME DEAL";
+    position: absolute;
+    left: 208px;
+    top: 15px;
+    font: 24px JamsilB;
+    width: 67px;
+    white-space: wrap;
+    line-height: 30px;
+}
+nav .sale .scroll {
+    position: absolute;
+    right: 25px;
+    top: 100px;
+    width: 20px;
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+nav .sBanner {
+    width: 100%;
+    background: #31356b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+nav .rank {
+    margin-top: 20px;
+}
+nav .rank .rankTitle ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .rank .rankTitle p:first-child {
+    position: relative;
+    display: inline-block;
+    font: 35px JamsilB;
+    text-align: center;
+    margin-left: 30px;
+}
+nav .rank .rankTitle p:first-child::after {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #f00;
+    border-radius: 50%;
+}
+nav .rank .rankTitle p:last-child {
+    font: 13px JamsilL;
+    text-align: center;
+    color: #929292;
+    margin-top: 5px;
+}
+nav .rank .rankProd {
+    width: 100%;
+    margin-top: 20px;
+}
+nav .rank .rankProd .block {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+nav .rank .rankProd .block .prod {
+    position: relative;
+}
+nav .rank .rankProd .block .prod img {
+    width: 188px;
+}
+nav .rank .rankProd .block .prod li:first-child {
+    width: 280px;
+    height: 220px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+nav .rank .rankProd .block .prod li:nth-child(2) {
+    width: 270px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font: 16px JamsilR;
+    margin-top: 20px;
+}
+nav .rank .rankProd .block .prod li:nth-child(3) {
+    font: 12px JamsilL;
+    color: #929292;
+    margin-top: 4px;
+}
+nav .rank .rankProd .block .prod li:nth-child(4) {
+    font: 19px JamsilM;
+    margin-top: 4px;
+    color: #000;
+}
+nav .rank .rankProd .block .prod li:nth-child(4) .salePrice {
+    font: 13px JamsilR;
+    color: #929292;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+nav .rank .rankProd .block .prod li:nth-child(4) .salePersent {
+    font: 16px JamsilR;
+    color: #f00;
+    margin-left: 5px;
+}
+nav .rank .rankProd .block .prod li:nth-child(5) {
+    position: absolute;
+    right: 10px;
+    bottom: 85px;
+}
+nav .rank .rankProd .block .prod li:nth-child(5) img {
+    width: 32px;
+}
+nav .rank .rankProd .block .prod li:last-child {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+}
+nav .rank .rankProd .block .prod li:last-child p {
+    font: 24px JamsilB;
+    width: 54px;
+    text-align: center;
+}
+nav .rank .rankProd .block .prod::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 195px;
+    top: -25px;
+    height: 63px;
+    width: 63px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 41px 0px 0px 0px #fff,
+                0 47px 0 0 #fff,
+                41px 47px 0 0 #fff;
+}
+nav .rank .rankProd .block .prod li:first-child:hover {
+    background: rgba(92,92,92,0.4);
+}
+nav .rank .rankProd .block:first-child {
+    margin-bottom: 20px;
+}
+nav .lBanner {
+    margin: 20px 0px;
+}
+nav .tv {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+nav .tv .back {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    z-index: -1;
+}
+nav .tv .tvTitle {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+nav .tv .tvTitle li {
+    margin-bottom: 20px;
+}
+nav .tv .tvTitle li:first-child {
+    position: relative;
+    display: inline;
+    font: 35px JamsilB;
+}
+nav .tv .tvTitle li:first-child::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    background: #f00;
+    border-radius: 50%;
+}
+nav .tv .tvTitle li:nth-child(2) {
+    position: absolute;
+    left: 220px;
+    top: 5px;
+}
+nav .tv .tvTitle li:nth-child(3) {
+    font: 13px JamsilL;
+    color: #929292;
+}
+nav .tv .tvTitle li:last-child a{
+    position: relative;
+    width: 100%;
+    font: 33px JamsilEB;
+    color: #fff;
+    background: #f00;
+    border-radius: 50px;
+    text-align: center;
+    padding: 10px 10px;
+}
+nav .tv .video {
+    width: 890px;
+    overflow: hidden;
+}
+nav .tv .content {
+    width: 1180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .tv .content ul {
+    position: relative;
+    width: 380px;
+    height: 300px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+nav .tv .content ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .tv .content ul li:first-child img{
+    width: 534px;
+    opacity: 0.8;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+nav .tv .content ul li:nth-child(2) a{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .tv .content ul:hover li:first-child img {
+    transform: scale(1.1);
+}
+nav .insta {
+    margin-top: 20px;
+}
+nav .insta .instaTitle ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .insta .instaTitle p:first-child{
+    position: relative;
+    display: inline-block;
+    font: 35px JamsilB;
+    text-align: center;
+    margin-left: 30px;
+}
+nav .insta .instaTitle p:first-child::after {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #f00;
+    border-radius: 50%;
+}
+nav .insta .instaTitle p:last-child {
+    font: 13px JamsilL;
+    text-align: center;
+    color: #929292;
+    margin-top: 5px;
+    padding-left: 30px;
+}
+nav .insta .instaTitle li:last-child {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+nav .insta .board {
+    width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+}
+nav .insta .board > ul {
+    width: 1720px;
+    height: 220px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+nav .insta .board >ul .list {
+    position: relative;
+    width: 220px;
+    height: 220px;
+}
+nav .insta .board > ul li .list li:first-child  img {
+    width: 220px;
+}
+nav .insta .board > ul .list li:last-child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+nav .insta .board > ul .list li:last-child img {
+    padding: 5px;
+}
+nav .insta .board > ul .list:hover li:last-child {
+    opacity: 1;
+}
+footer {
+    position: relative;
+}
+footer::after {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    content: "";
+    background: #f5f5f5;
+    width: 100vw;
+    height: 380px;
+    z-index: -2;
+}
+footer .footMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #929292;
+}
+footer .footMenu ul li a {
+    font: 16px JamsilL;
+    color: #929292;
+}
+footer .footMenu .left {
+    width: 290px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+footer .footMenu .left li:last-child a {
+    font: 16px JamsilR;
+    color: #f00;
+}
+footer .footMenu .right {
+    width: 460px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+footer .explain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px;
+}
+footer .explain .text ul li {
+    margin: 25px 0;
+}
+footer .explain .text ul .bold {
+    font: 15px JamsilL;
+}
+footer .explain .text ul .light {
+    font: 15px JamsilL;
+    color: #929292;
+}
+footer .explain .text ul li span {
+    margin: 0 10px;
+}
+footer .explain .sns {
+    padding-bottom: 230px;
+    box-sizing: border-box;
+}
+footer .explain .sns ul{
+    width: 180px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
